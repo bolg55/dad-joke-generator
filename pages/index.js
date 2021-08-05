@@ -17,10 +17,11 @@ export default function Home({ data }) {
 }
 
 export const getServerSideProps = async () => {
-  try {
+  
     const config = {
       headers: {
         Accept: "application/json",
+        "User-Agent": "Dad Joke Generator (https://github.com/bolg55/dad-joke-generator) https://kellenbolger.ca",
       },
     }
     const res = await axios.get("https://icanhazdadjoke.com/", config)
@@ -29,7 +30,5 @@ export const getServerSideProps = async () => {
     return {
       props: { data },
     }
-  } catch (e) {
-    console.log("Error", e)
-  }
+  
 }
